@@ -395,7 +395,10 @@ C      CALL BDOTL
       PRINT 1200, 'EXTERNAL ELECTRIC FIELD:    ',ERGFLD
       PRINT 1200, ' '
  1200 FORMAT(A,F20.6)
-       call electronic_geometry(ETOTAL) 
+    INQUIRE(FILE='FRMORB',EXIST=EXIST)
+    IF(EXIST)THEN
+       call electronic_geometry(ETOTAL)
+    END IF
 C
 C FIRST LET'S CLEAN UP THE DISK A BIT ...
 C 
